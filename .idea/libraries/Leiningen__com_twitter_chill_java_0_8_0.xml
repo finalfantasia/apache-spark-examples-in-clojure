@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Leiningen: com.twitter/chill-java:0.8.0">
-    <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/com/twitter/chill-java/0.8.0/chill-java-0.8.0.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

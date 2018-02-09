@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Leiningen: org.apache.directory.api/api-asn1-api:1.0.0-M20">
-    <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/apache/directory/api/api-asn1-api/1.0.0-M20/api-asn1-api-1.0.0-M20.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

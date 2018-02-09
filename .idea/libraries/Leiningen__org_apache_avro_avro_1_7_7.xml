@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Leiningen: org.apache.avro/avro:1.7.7">
-    <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/apache/avro/avro/1.7.7/avro-1.7.7.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

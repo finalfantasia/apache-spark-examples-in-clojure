@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Leiningen: org.codehaus.janino/janino:3.0.0">
-    <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/janino/janino/3.0.0/janino-3.0.0.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
