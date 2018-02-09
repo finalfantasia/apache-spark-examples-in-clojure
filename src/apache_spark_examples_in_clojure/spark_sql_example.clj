@@ -79,6 +79,7 @@
     ;; |  30|    1|
     ;; +----+-----+
 
+
     ;; Registers the DataFrame as a SQL temporary view.
     (.createOrReplaceTempView df "people")
 
@@ -124,7 +125,7 @@
 
 
 (defn -main
-  [& args]
+  [& _]
   (let [spark (-> (SparkSession/builder)
                   (.appName "Spark SQL basic example")
                   (.master "local")

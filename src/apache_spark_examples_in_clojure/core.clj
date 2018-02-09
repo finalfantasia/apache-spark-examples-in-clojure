@@ -3,5 +3,5 @@
 
 
 (defn -main
-  [& args]
+  [& _]
   (println "See the individual example namespaces."))
