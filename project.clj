@@ -9,5 +9,9 @@
                  [org.apache.spark/spark-sql_2.11 "2.2.1"]]
 
   :main ^:skip-aot apache-spark-examples-in-clojure.core
+
+  :source-paths ["src/clojure"]
+  :java-source-paths ["src/java"]
   :target-path "target/%s"
+
   :profiles {:uberjar {:aot :all}})
