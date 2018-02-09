@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: com.fasterxml.jackson.module/jackson-module-paranamer:2.6.5">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/module/jackson-module-paranamer/2.6.5/jackson-module-paranamer-2.6.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

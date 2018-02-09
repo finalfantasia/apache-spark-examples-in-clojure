@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: javax.mail/mail:1.4.7">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/javax/mail/mail/1.4.7/mail-1.4.7.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

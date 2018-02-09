@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: commons-net:2.2">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/commons-net/commons-net/2.2/commons-net-2.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

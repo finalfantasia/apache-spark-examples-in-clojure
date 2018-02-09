@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: org.apache.avro/avro-mapred:1.7.7:hadoop2">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/avro/avro-mapred/1.7.7/avro-mapred-1.7.7-hadoop2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

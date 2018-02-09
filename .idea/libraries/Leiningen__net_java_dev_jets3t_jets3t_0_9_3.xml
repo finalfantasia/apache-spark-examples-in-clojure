@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: net.java.dev.jets3t/jets3t:0.9.3">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/net/java/dev/jets3t/jets3t/0.9.3/jets3t-0.9.3.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

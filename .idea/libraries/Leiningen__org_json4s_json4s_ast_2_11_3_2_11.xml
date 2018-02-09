@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: org.json4s/json4s-ast_2.11:3.2.11">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/json4s/json4s-ast_2.11/3.2.11/json4s-ast_2.11-3.2.11.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

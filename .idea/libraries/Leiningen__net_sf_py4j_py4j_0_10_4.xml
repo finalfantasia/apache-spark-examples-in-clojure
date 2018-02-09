@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: net.sf.py4j/py4j:0.10.4">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/net/sf/py4j/py4j/0.10.4/py4j-0.10.4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
