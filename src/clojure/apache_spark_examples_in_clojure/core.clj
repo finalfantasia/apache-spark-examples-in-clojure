@@ -6,5 +6,4 @@
 
 (defn -main
   [& _]
-  (println "See the individual example namespaces.")
   (sql-example/-main))

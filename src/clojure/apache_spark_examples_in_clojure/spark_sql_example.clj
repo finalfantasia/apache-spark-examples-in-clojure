@@ -183,7 +183,7 @@
                   (.config "apache_spark_examples_in_clojure.some.config.option" "some-value")
                   (.getOrCreate))]
 
-    ;(run-basic-data-frame-example! spark)
+    (run-basic-data-frame-example! spark)
     (run-dataset-creation-example! spark)
 
     (.stop spark)))
