@@ -4,9 +4,7 @@
   :license {:name "Eclipse Public License"
             :url  "http://www.eclipse.org/legal/epl-v10.html"}
 
-  :dependencies [[org.clojure/clojure "1.8.0"]
-                 [org.apache.spark/spark-core_2.11 "2.2.1" :scope "provided"]
-                 [org.apache.spark/spark-sql_2.11 "2.2.1" :scope "provided"]]
+  :dependencies [[org.clojure/clojure "1.8.0"]]
 
   :main ^:skip-aot apache-spark-examples-in-clojure.core
 
@@ -14,4 +12,8 @@
   :java-source-paths ["src/java"]
   :target-path "target/%s"
 
-  :profiles {:uberjar {:aot :all}})
+  :profiles {:uberjar  {:aot :all}
+
+             :provided {:dependencies
+                        [[org.apache.spark/spark-core_2.11 "2.2.1"]
+                         [org.apache.spark/spark-sql_2.11 "2.2.1"]]}})
