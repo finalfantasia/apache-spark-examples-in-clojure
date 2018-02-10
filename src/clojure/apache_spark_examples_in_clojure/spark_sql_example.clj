@@ -131,14 +131,14 @@
   [^SparkSession spark]
   (let [;; Creates an instance of a Bean class.
         person         (doto (Person.)
-                         (.setName "Andy")
-                         (.setAge 32))
+                             (.setName "Andy")
+                             (.setAge 32))
 
         ;; Encoders are created for Java beans.
         person-encoder (Encoders/bean Person)
-        java-bean-ds   (-> spark
-                           (.createDataset (u/->array-list [person])
-                                           person-encoder))]
+        java-bean-ds   (.createDataset spark
+                                       (u/->array-list [person])
+                                       person-encoder)]
 
     (.show java-bean-ds)
     ;; +---+----+
@@ -150,12 +150,12 @@
 
     ;; Encoders for most common types are provided in class Encoders.
     (let [integer-encoder (Encoders/LONG)
-          primitive-ds    (-> spark
-                              (.createDataset (u/->array-list [1, 2, 3])
-                                              integer-encoder))
-          transformed-ds  (-> primitive-ds
-                              (.map (fns/->map-fn inc)
-                                    integer-encoder))]
+          primitive-ds    (.createDataset spark
+                                          (u/->array-list [1, 2, 3])
+                                          integer-encoder)
+          transformed-ds  (.map primitive-ds
+                                (fns/->map-fn inc)
+                                integer-encoder)]
       (.collect transformed-ds)) ;; Returns [2, 3, 4]
 
 
