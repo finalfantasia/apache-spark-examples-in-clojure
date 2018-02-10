@@ -3,7 +3,7 @@
     [apache-spark-examples-in-clojure.fns :as fns]
     [apache-spark-examples-in-clojure.utils :as u])
   (:import
-    (org.apache.spark.sql SparkSession functions Encoders)
+    (org.apache.spark.sql SparkSession Encoders)
     (apache_spark_examples_in_clojure Person)))
 
 
@@ -47,7 +47,7 @@
 
     ;; Selects everybody but increments "age" by 1.
     (-> df
-        (.select (u/cols (functions/col "name") (.plus (functions/col "age") 1)))
+        (.select (u/cols (u/col "name") (.plus (u/col "age") 1)))
         (.show))
     ;; +-------+---------+
     ;; |   name|(age + 1)|
@@ -60,7 +60,7 @@
 
     ;; Selects people older than 21.
     (-> df
-        (.filter (.gt (functions/col "age") 21))
+        (.filter (.gt (u/col "age") 21))
         (.show))
     ;; +---+----+
     ;; |age|name|
@@ -100,7 +100,7 @@
     ;; Registers the DataFrame as a global temporary view.
     (.createOrReplaceGlobalTempView df "people")
 
-    ;; Global temporary view is tied to a system preserved database 'global_temp'.
+    ;; Global temporary view is tied to a system-preserved database, 'global_temp'.
     (-> spark
         (.sql "SELECT * FROM global_temp.people")
         (.show))

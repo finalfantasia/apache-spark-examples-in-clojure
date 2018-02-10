@@ -10,13 +10,20 @@
   (ArrayList. coll))
 
 
-(defmulti col "Creates a `Column` from given argument." class)
-(defmethod col Column ^Column [^Column x] x)
-(defmethod col String ^Column [^String x] (functions/col x))
+(defn col
+  "Creates a `Column` from column name."
+  ^Column
+  [^String x]
+  (functions/col x))
+
+
+(defmulti col-helper class)
+(defmethod col-helper Column [x] x)
+(defmethod col-helper String [x] (functions/col x))
 
 
 (defn cols
   "Creates an array of `Column`s."
   #^"[Lorg.apache.spark.sql.Column;"
   [& xs]
-  (into-array Column (map col xs)))
+  (into-array Column (map col-helper xs)))
