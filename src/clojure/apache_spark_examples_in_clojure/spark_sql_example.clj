@@ -7,7 +7,8 @@
     (apache_spark_examples_in_clojure Person)))
 
 
-(defn run-basic-data-frame-example! [^SparkSession spark]
+(defn run-basic-data-frame-example!
+  [^SparkSession spark]
   (let [df (-> spark
                (.read)
                (.json "resources/people.json"))]
@@ -126,7 +127,8 @@
     ;; +----+-------+
 
 
-(defn run-dataset-creation-example! [^SparkSession spark]
+(defn run-dataset-creation-example!
+  [^SparkSession spark]
   (let [;; Creates an instance of a Bean class.
         person         (doto (Person.)
                          (.setName "Andy")
@@ -154,7 +156,7 @@
           transformed-ds  (-> primitive-ds
                               (.map (fns/->map-fn inc)
                                     integer-encoder))]
-      (.collect transformed-ds)) ;; Returns [1, 2, 3]
+      (.collect transformed-ds)) ;; Returns [2, 3, 4]
 
 
     ;; DataFrames can be converted to a Dataset by providing a class, mapping based on name.
