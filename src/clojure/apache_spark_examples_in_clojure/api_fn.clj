@@ -1,4 +1,4 @@
-(ns apache-spark-examples-in-clojure.fns
+(ns apache-spark-examples-in-clojure.api-fn
   (:import
     (org.apache.spark.api.java.function MapFunction FlatMapFunction)))
 

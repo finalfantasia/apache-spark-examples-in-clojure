@@ -1,7 +1,8 @@
 (ns apache-spark-examples-in-clojure.spark-sql-example
   (:require
-    [apache-spark-examples-in-clojure.fns :as fns]
-    [apache-spark-examples-in-clojure.utils :as u])
+    [apache-spark-examples-in-clojure.col :as c]
+    [apache-spark-examples-in-clojure.api-fn :as api]
+    [apache-spark-examples-in-clojure.util :as u])
   (:import
     (org.apache.spark.sql SparkSession Encoders)
     (apache_spark_examples_in_clojure Person)))
@@ -34,7 +35,7 @@
 
     ;; Selects only the "name" column.
     (-> df
-        (.select (u/cols "name"))
+        (.select (c/cols "name"))
         (.show))
     ;; +-------+
     ;; |   name|
@@ -47,7 +48,7 @@
 
     ;; Selects everybody but increments "age" by 1.
     (-> df
-        (.select (u/cols (u/col "name") (.plus (u/col "age") 1)))
+        (.select (c/cols (c/col "name") (.plus (c/col "age") 1)))
         (.show))
     ;; +-------+---------+
     ;; |   name|(age + 1)|
@@ -60,7 +61,7 @@
 
     ;; Selects people older than 21.
     (-> df
-        (.filter (.gt (u/col "age") 21))
+        (.filter (.gt (c/col "age") 21))
         (.show))
     ;; +---+----+
     ;; |age|name|
@@ -71,7 +72,7 @@
 
     ;; Counts people by age.
     (-> df
-        (.groupBy (u/cols "age"))
+        (.groupBy (c/cols "age"))
         (.count)
         (.show))
     ;; +----+-----+
@@ -154,7 +155,7 @@
                                           (u/->array-list [1, 2, 3])
                                           integer-encoder)
           transformed-ds  (.map primitive-ds
-                                (fns/->map-fn inc)
+                                (api/->map-fn inc)
                                 integer-encoder)]
       (.collect transformed-ds)) ;; Returns [2, 3, 4]
 
