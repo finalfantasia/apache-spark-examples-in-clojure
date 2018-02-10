@@ -10,7 +10,8 @@ Download from http://example.com/FIXME.
 
 FIXME: explanation
 
-    $ java -jar apache-spark-examples-in-clojure-0.1.0-standalone.jar [args]
+    $ lein uberjar
+    $ $SPARK_HOME/bin/spark-submit --name try-apache-spark --master local --class apache_spark_examples_in_clojure.core target/uberjar/apache-spark-examples-in-clojure-0.1.0-SNAPSHOT-standalone.jar
 
 ## Options
 

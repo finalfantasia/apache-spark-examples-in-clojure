@@ -1,8 +1,10 @@
 (ns apache-spark-examples-in-clojure.spark-sql-example
   (:require
+    [apache-spark-examples-in-clojure.fns :as fns]
     [apache-spark-examples-in-clojure.utils :as u])
   (:import
-    (org.apache.spark.sql SparkSession functions)))
+    (org.apache.spark.sql SparkSession functions Encoders)
+    (apache_spark_examples_in_clojure Person)))
 
 
 (defn run-basic-data-frame-example! [^SparkSession spark]
@@ -124,14 +126,62 @@
     ;; +----+-------+
 
 
+(defn run-dataset-creation-example! [^SparkSession spark]
+  (let [;; Creates an instance of a Bean class.
+        person         (doto (Person.)
+                         (.setName "Andy")
+                         (.setAge 32))
+
+        ;; Encoders are created for Java beans.
+        person-encoder (Encoders/bean Person)
+        java-bean-ds   (-> spark
+                           (.createDataset (u/->array-list [person])
+                                           person-encoder))]
+
+    (.show java-bean-ds)
+    ;; +---+----+
+    ;; |age|name|
+    ;; +---+----+
+    ;; | 32|Andy|
+    ;; +---+----+
+
+
+    ;; Encoders for most common types are provided in class Encoders.
+    (let [integer-encoder (Encoders/LONG)
+          primitive-ds    (-> spark
+                              (.createDataset (u/->array-list [1, 2, 3])
+                                              integer-encoder))
+          transformed-ds  (-> primitive-ds
+                              (.map (fns/->map-fn inc)
+                                    integer-encoder))]
+      (.collect transformed-ds)) ;; Returns [1, 2, 3]
+
+
+    ;; DataFrames can be converted to a Dataset by providing a class, mapping based on name.
+    (let [path      "resources/people.json"
+          people-ds (-> spark
+                        (.read)
+                        (.json path)
+                        (.as person-encoder))]
+      (.show people-ds))))
+      ;; +----+-------+
+      ;; | age|   name|
+      ;; +----+-------+
+      ;; |null|Michael|
+      ;; |  30|   Andy|
+      ;; |  19| Justin|
+      ;; +----+-------+
+
+
 (defn -main
   [& _]
   (let [spark (-> (SparkSession/builder)
                   (.appName "Spark SQL basic example")
                   (.master "local")
-                  (.config "spark.some.config.option" "some-value")
+                  (.config "apache_spark_examples_in_clojure.some.config.option" "some-value")
                   (.getOrCreate))]
 
-    (run-basic-data-frame-example! spark)
+    ;(run-basic-data-frame-example! spark)
+    (run-dataset-creation-example! spark)
 
     (.stop spark)))
