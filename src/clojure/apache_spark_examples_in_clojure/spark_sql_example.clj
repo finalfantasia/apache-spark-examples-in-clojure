@@ -48,7 +48,7 @@
 
     ;; Selects everybody but increments "age" by 1.
     (-> df
-        (.select (c/cols (c/col "name") (.plus (c/col "age") 1)))
+        (.select (c/cols "name" (-> "age" (c/col) (.plus 1))))
         (.show))
     ;; +-------+---------+
     ;; |   name|(age + 1)|
@@ -61,7 +61,7 @@
 
     ;; Selects people older than 21.
     (-> df
-        (.filter (.gt (c/col "age") 21))
+        (.filter (-> "age" (c/col) (.gt 21)))
         (.show))
     ;; +---+----+
     ;; |age|name|
