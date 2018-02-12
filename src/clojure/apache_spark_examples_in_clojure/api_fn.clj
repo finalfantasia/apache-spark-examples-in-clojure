@@ -3,7 +3,7 @@
     (org.apache.spark.api.java.function MapFunction FlatMapFunction)))
 
 
-(defn ->map-fn
+(defn map-fn
   ^MapFunction
   [f]
   (reify MapFunction
@@ -11,7 +11,7 @@
       (f x))))
 
 
-(defn ->flat-map-fn
+(defn flat-map-fn
   ^FlatMapFunction
   [f]
   (reify FlatMapFunction

@@ -138,7 +138,7 @@
         ;; Encoders are created for Java beans.
         person-encoder (Encoders/bean Person)
         java-bean-ds   (.createDataset spark
-                                       (u/->array-list [person])
+                                       (u/array-list [person])
                                        person-encoder)]
 
     (.show java-bean-ds)
@@ -152,10 +152,10 @@
     ;; Encoders for most common types are provided in class Encoders.
     (let [integer-encoder (Encoders/LONG)
           primitive-ds    (.createDataset spark
-                                          (u/->array-list [1, 2, 3])
+                                          (u/array-list [1, 2, 3])
                                           integer-encoder)
           transformed-ds  (.map primitive-ds
-                                (api/->map-fn inc)
+                                (api/map-fn inc)
                                 integer-encoder)]
       (.collect transformed-ds)) ;; Returns [2, 3, 4]
 

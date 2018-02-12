@@ -3,7 +3,7 @@
     (java.util List Collection ArrayList)))
 
 
-(defn ->array-list
+(defn array-list
   ^List
   [^Collection coll]
   (ArrayList. coll))
